@@ -1,0 +1,29 @@
+# Кастомное ядро Linux 7.0.11 с патчами Gentoo и планировщиком BORE (CachyOS)
+
+Данная сборка основана на ванильном ядре Linux 7.0.11 (ветка stable).
+Поверх него наложены:
+- 11 патчей от Gentoo (genpatches) для совместимости с Portage и безопасности.
+- Патч планировщика BORE (Burst-Oriented Response Enhancer) из репозитория CachyOS.
+
+# Список включённых патчей Gentoo (все, кроме инкрементов 1000-1010 и BMQ/PDS):
+
+- 1510_fs-enable-link-security-restrictions-by-default.patch
+- 1605_crypto-nx-fix-nx-crypto-ctx-exit-arg.patch
+- 1700_sparc-address-warray-bound-warnings.patch
+- 1730_parisc-Disable-prctl.patch
+- 2000_BT-Check-key-sizes-only-if-Secure-Simple-Pairing-enabled.patch
+- 2901_permit-menuconfig-sorting.patch
+- 2902_Replace-CONST-CAST-with-const-cast.patch
+- 2990_libbpf-v2-workaround-Wmaybe-uninitialized-false-pos.patch
+- 2991_libbpf_add_WERROR_option.patch
+- 3000_Support-printing-firmware-info.patch
+- 4567_distro-Gentoo-Kconfig.patch
+
+## Патч CachyOS:
+- 0001-bore.patch (планировщик BORE, версия без зависимостей от CONFIG_CACHY)
+
+# ВАЖНЫЕ ПРИМЕЧАНИЯ:
+- Патчи nvidia не использовались, так как собирал ядро под AMD карты
+- Патчи инкрементального обновления (1000_linux-7.0.1.patch ... 1010_linux-7.0.11.patch) не применялись, так в ядре 7.0.11 они уже были.
+- Патчи BMQ/PDS (5020_* и 5021_*) исключены из-за конфликта с BORE.
+- Дополнительные патчи CachyOS (cgroup-vram, hardened, aufs и др.) не использованы.
