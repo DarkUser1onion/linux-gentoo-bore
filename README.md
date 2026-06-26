@@ -5,6 +5,15 @@
 - 11 патчей от Gentoo (genpatches) для совместимости с Portage и безопасности.
 - Патч планировщика BORE (Burst-Oriented Response Enhancer) из репозитория CachyOS.
 
+## Установка
+```bash
+git clone https://github.com/DarkUser1onion/linux-gentoo-bore
+cd linux-gentoo-bore
+make olddefconfig
+make -j$(nproc)
+sudo make modules_install install
+```
+
 ## Список включённых патчей Gentoo (все, кроме инкрементов 1000-1010 и BMQ/PDS):
 
 - 1510_fs-enable-link-security-restrictions-by-default.patch
